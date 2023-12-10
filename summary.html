@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Parallax Scrolling Website</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #text {
+      font-size: 6em;
+	  bottom: auto;
+    }
+
+    #btn {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+	 <audio autoplay loop>
+		<source src="js/gjc.mp3" type="audio/mp3">
+	</audio>
+  <header>
+    <img src="image/logo3.png" width="222" height="85" class="logo" alt="">
+    <ul>
+      <li><a href="web.html" class="active">首页</a></li>
+      <li><a href="https://potatoshred.github.io/index.html" class="active">寝室</a></li>
+      <li><a href="personal.html" class="active">个人主页</a></li>
+      <li><a href="uphone.html" class="active">科技</a></li>
+    </ul>
+  </header>
+  <section>
+    <!-- Remove img tags for stars, moon, mountains_behind, and mountains_front -->
+    <h2 id="text">年度总结</h2>
+    <a href="#sec" id="btn">Explore</a>
+  </section>
+  <div class="sec" id="sec">
+    <h2>2023年度总结</h2>
+    <p>2023年度大事<br>高考<br>参加高考，于我而言，这种感觉很奇妙，不同于所有的模拟考试，也与他人所说的不一样，更不像影视作品中描绘的那样。或许这就是只有你亲身参加了高考，才能明白什么是高考。记得当时高考出分的那天晚上，我因为不想熬夜就睡觉了本以为会辗转反侧，却到头就睡了，不过估计心里还是在乎的，所以2点左右的时候醒了，正好避过高峰期，醒来时看到手机上同学发的消息，脑子一片混乱，在输入账号密码查询时，我感觉那一瞬间想了很多事，或许是如果真的砸了怎么办，亦或是如果好了怎么办，真是思绪万千，查完分后也没有睡着，回想了自己的整个高中。老实说，从现在回望，我感觉高三过的很快，从200天到0天就像一瞬。这其中最难熬的也就是持续一个多月的考练，这期间也有很多的无力和苦涩，不过对于这个高三，我很满意，这会是我此生最难忘的经历之一了。</p>
+  </div>
+  <div class="sec" id="sec1">
+    <h2>成长</h2>
+    <p>走出了高中，来到了大学。感觉离社会更近了（虽然还不算真正进入社会）。重点是有了一些进步，第一次加入社团，第一次面试，第一次参与小组活动，第一次接触“工训”，第一次真正意义上的打篮球......有一说一，篮球考试对我这种零基础初学者确实有点难了。更为真实的是，到后我要自己做决定了的时候了，算是更加独立了。睡觉也是越来越晚了，之前10点必睡，现在是稍不留神就到凌晨了，希望以后生活作息能更加规律一点。</p>
+  </div>
+  <div class="sec" id="sec2">
+    <h2>旅游</h2>
+    <p>算是补上了高中三年没有外出旅游过的遗憾。先后去了南京--杭州--武汉--西安。当时是高考完第二天就出发了，去看了各个地方的大学，当然也包括华中科技大学，只不过当时是在南大门外面拍了几张照片就走了，也没有想过会来到这里，毕竟当时估计的分数估计就能上个普通211，所以在旅游途中也是不安心，特别去往武汉时，班主任打电话问我估计考多少分时。总的来说，还是很不错的。见到了不同地方的风土人情，也放松了一下高考后的紧张心情，说实话在高中还是太封闭了，现在青春才算真正开始了。</p>
+  </div>
+  <div class="sec" id="sec3">
+    <h2>明年的期望</h2>
+    <p>这一年过的还行，目前最大的烦恼就是在计算机相关知识上的薄弱了，当然还有篮球，希望明年能够解决这两个问题。</p>
+  </div>
+  <script>
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn');
+    let header = document.querySelector('header');
+	  
+    window.addEventListener('scroll', function(){
+      let value = window.scrollY;
+      text.style.marginRight = value * 4 + 'px';
+      text.style.marginTop = value * 1.5 + 'px';
+      btn.style.marginTop = value * 1.5 + 'px';
+      header.style.top = value * 0.5 + 'px';
+    })
+	  ;
+  </script>
+</body>
+</html>
