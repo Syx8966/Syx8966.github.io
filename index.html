@@ -1,79 +1,134 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>首页</title>
-<link href="css/sp.css" rel="stylesheet" type="text/css">
-	 <style>
-		 .container{position: relative;width: 100vw;height: 100vh; overflow: hidden;}
-        .page {
-            display: none;
-			background: white;
-        }
-
-        .active {
-            display: block;
-        }
-		 #pending1 {background: white;}
-		ul {
-            list-style: none;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
             display: flex;
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url("image/login.jpg") center center/cover no-repeat;
         }
 
-        ul li a {
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.5); 
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #333;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        .form-group input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group a {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
             text-decoration: none;
-            color: white;
-            transition: color 0.3s;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
         }
 
-        ul li a:hover,
-		 ul li a:focus {
-            color: lightblue;
+        .form-group a:hover {
+            background-color: #45a049;
+        }
+
+        .right-corner-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #393939;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-corner-button:hover {
+            background-color: #2980b9;
+        }
+
+        .login-hint {
+            color: #555;
+            font-size: 14px;
+            margin-top: 10px;
         }
     </style>
 </head>
-
 <body>
-<div class="container">
-  <video autoplay muted loop play-inline class="back-video">
-		<source src="media/movie/mm.mp4" type="video/mp4">
-	</video>
-	<audio autoplay loop>
-		<source src="js/my.MP3" type="audio/mp3">
-	</audio>
-<nav>
-	  <img src="image/logo3.png" width="222" height="85" class="logo" alt="">
-	  <ul>
-				<li><a href="#" onClick="showPage('home')">首页</a></li>
-				<li><a href="personal.html" >单的个人信息</a></li>
-				<li><a href="uphone.html" >遥遥领先</a></li>
-				<li><a href="summary.html" >年终总结</a></li>
-		  		<li><a href="https://potatoshred.github.io/index.html">我们的羁绊</a></li>
-	</ul>
-  </nav>
-	<div class="content">
-		<h1>welcome！</h1>
-		<br>
-		<a href="personal.html" onClick="showPage('explore')">探索</a>
-	</div>
 
+<div class="login-container">
+    <h2>登录</h2>
+    <form class="login-form" id="loginForm">
+        <div class="form-group">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <a href="#" onclick="checkPassword()">登录</a>
+        </div>
+    </form>
+    <span class="login-hint">提示：用户名随意，密码藏在张致远的网页中</span>
+    <a class="right-corner-button" href="another_page.html">返回寝室</a>
 </div>
-	
+
 <script>
-	    function showPage(pageId) {
+    function checkPassword() {
+        var expectedPassword = "2017";
+        var enteredPassword = document.getElementById("password").value;
 
-        var pages = document.querySelectorAll('.page');
-        pages.forEach(function(page) {
-            page.classList.remove('active');
-        });
-
-        var selectedPage = document.getElementById(pageId);
-        selectedPage.classList.add('active');
-		document.body.style.backgroundColor = 'white';
+        if (enteredPassword === expectedPassword) {
+            window.location.href = "index1.html";
+        } else {
+            alert("密码不正确，请重新输入。");
+        }
     }
 </script>
+
 </body>
 </html>
